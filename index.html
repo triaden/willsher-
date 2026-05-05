@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willsher Security LLC | Elite Protection & Executive Security | Spring, TX</title>
+    <meta name="description" content="Willsher Security LLC provides elite armed and unarmed security services, executive protection, mobile patrol, and event security in Spring, TX and Greater Houston. Texas DPS licensed.">
+    <meta name="keywords" content="private security Spring TX, executive protection Houston, armed security Harris County, security company Texas, mobile patrol, event security, loss prevention, access control">
+    <meta name="author" content="Willsher Security LLC">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Willsher Security LLC | Elite Protection & Executive Security">
+    <meta property="og:description" content="Comprehensive security solutions tailored to protect what matters most. Licensed, insured, and veteran-led. Serving Spring, TX and Greater Houston.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://willshier.netlify.app/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#0a0a0a">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'tactical-black': '#0a0a0a',
+                        'tactical-gold': '#c9a227',
+                        'tactical-blue': '#4a6fa5',
+                        'tactical-red': '#c0392b',
+                        'tactical-smoke': '#f5f5f5',
+                        'surface': '#111111',
+                        'surface-light': '#1a1a1a',
+                        'text-muted': '#a0a0a0'
+                    },
+                    fontFamily: {
+                        'heading': ['Oswald', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --tactical-black: #0a0a0a;
+            --tactical-gold: #c9a227;
+            --tactical-blue: #4a6fa5;
+            --tactical-red: #c0392b;
+            --tactical-smoke: #f5f5f5;
+            --surface: #111111;
+            --surface-light: #1a1a1a;
+            --text-muted: #a0a0a0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--tactical-black);
+            color: var(--tactical-smoke);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Canvas Background */
+        #tactical-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Radial Vignette Overlay */
+        .vignette-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            background: radial-gradient(ellipse at center, transparent 0%, transparent 40%, rgba(10, 10, 10, 0.4) 100%);
+        }
+
+        /* Main Content Layer */
+        .content-layer {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Glassmorphism Nav */
+        .nav-glass {
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(201, 162, 39, 0.15);
+        }
+
+        /* Gold Accent Text */
+        .gold-text {
+            color: var(--tactical-gold);
+        }
+
+        .gold-border {
+            border-color: var(--tactical-gold);
+        }
+
+        /* Section Label Styling */
+        .section-label {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--tactical-gold);
+            margin-bottom: 1rem;
+        }
+
+        /* Hero Gradient Overlay */
+        .hero-overlay {
+            background: linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.6) 50%, rgba(10,10,10,0.95) 100%);
+        }
+
+        /* Card Styles */
+        .tactical-card {
+            background: linear-gradient(145deg, #111111, #161616);
+            border: 1px solid rgba(201, 162, 39, 0.12);
+            transition: all 0.3s ease;
+        }
+
+        .tactical-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(201, 162, 39, 0.35);
+            box-shadow: 0 12px 40px rgba(201, 162, 39, 0.08);
+        }
+
+        /* Button Styles */
+        .btn-gold {
+            background: linear-gradient(135deg, #c9a227 0%, #b8941f 100%);
+            color: #0a0a0a;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 1rem 2rem;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn-gold:hover {
+            background: linear-gradient(135deg, #d4af37 0%, #c9a227 100%);
+            box-shadow: 0 4px 20px rgba(201, 162, 39, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(201, 162, 39, 0.5);
+            color: var(--tactical-gold);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 1rem 2rem;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: rgba(201, 162, 39, 0.1);
+            border-color: var(--tactical-gold);
+            box-shadow: 0 4px 20px rgba(201, 162, 39, 0.15);
+        }
+
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+
+        /* Leadership Section Special Styling */
+        .confidential-stamp {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            color: rgba(201, 162, 39, 0.15);
+            text-transform: uppercase;
+            transform: rotate(12deg);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .official-stamp {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            border: 2px solid var(--tactical-red);
+            color: var(--tactical-red);
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            padding: 4px 12px;
+            text-transform: uppercase;
+            transform: rotate(-12deg);
+            background: rgba(192, 57, 43, 0.1);
+            z-index: 10;
+        }
+
+        .gold-frame {
+            border: 3px solid var(--tactical-gold);
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5), 0 0 20px rgba(201, 162, 39, 0.1);
+            position: relative;
+            background: var(--surface);
+        }
+
+        .landmark-box {
+            border-left: 4px solid var(--tactical-gold);
+            background: linear-gradient(90deg, rgba(201, 162, 39, 0.08) 0%, transparent 100%);
+            position: relative;
+        }
+
+        .landmark-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, var(--tactical-gold), transparent);
+        }
+
+        /* Timeline Styling */
+        .timeline-line {
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--tactical-gold) 0%, rgba(201,162,39,0.2) 100%);
+        }
+
+        .timeline-node {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--surface);
+            border: 2px solid var(--tactical-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-node.red {
+            border-color: var(--tactical-red);
+            background: rgba(192, 57, 43, 0.15);
+        }
+
+        .timeline-node i {
+            font-size: 0.75rem;
+            color: var(--tactical-gold);
+        }
+
+        .timeline-node.red i {
+            color: var(--tactical-red);
+        }
+
+        /* Pull Quote */
+        .pull-quote {
+            position: relative;
+            padding: 2rem 2rem 2rem 3rem;
+            border-left: 3px solid var(--tactical-gold);
+            background: rgba(201, 162, 39, 0.03);
+        }
+
+        .pull-quote::before {
+            content: '"';
+            position: absolute;
+            top: 0.5rem;
+            left: 1rem;
+            font-family: Georgia, serif;
+            font-size: 4rem;
+            color: var(--tactical-gold);
+            line-height: 1;
+            opacity: 0.4;
+        }
+
+        /* Stats Counter */
+        .stat-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--tactical-gold);
+            line-height: 1;
+        }
+
+        /* Feature Block Glow */
+        .feature-block {
+            background: linear-gradient(145deg, #111111, #161616);
+            border: 1px solid rgba(201, 162, 39, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(201,162,39,0.3), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .feature-block:hover::before {
+            opacity: 1;
+        }
+
+        .feature-block:hover {
+            border-color: rgba(201, 162, 39, 0.25);
+            box-shadow: 0 8px 30px rgba(201, 162, 39, 0.06);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 320px;
+            height: 100vh;
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 100;
+            transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border-left: 1px solid rgba(201, 162, 39, 0.2);
+            padding: 5rem 2rem 2rem;
+        }
+
+        .mobile-menu.open {
+            right: 0;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 99;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .menu-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Shield Badge */
+        .shield-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--tactical-black);
+            border: 1px solid var(--tactical-gold);
+            color: var(--tactical-gold);
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.5rem 1rem;
+            clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+            padding-bottom: 0.75rem;
+        }
+
+        /* Credential Badge */
+        .cred-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(201, 162, 39, 0.08);
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            color: var(--tactical-smoke);
+            font-size: 0.8rem;
+            padding: 0.4rem 0.8rem;
+            border-radius: 2px;
+        }
+
+        .cred-badge i {
+            color: var(--tactical-gold);
+            font-size: 0.75rem;
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Form Styling */
+        .form-input {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(201, 162, 39, 0.15);
+            color: var(--tactical-smoke);
+            padding: 0.875rem 1rem;
+            border-radius: 2px;
+            width: 100%;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--tactical-gold);
+            box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.1);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .form-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        /* Testimonial Card */
+        .testimonial-card {
+            background: linear-gradient(145deg, #111111, #161616);
+            border: 1px solid rgba(201, 162, 39, 0.12);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            font-family: Georgia, serif;
+            font-size: 5rem;
+            color: var(--tactical-gold);
+            line-height: 1;
+            opacity: 0.2;
+        }
+
+        /* Contact Info Item */
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .contact-item:last-child {
+            border-bottom: none;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(201, 162, 39, 0.1);
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            border-radius: 2px;
+            color: var(--tactical-gold);
+            flex-shrink: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(180deg, #0a0a0a 0%, #080808 100%);
+            border-top: 1px solid rgba(201, 162, 39, 0.1);
+        }
+
+        /* Service Icon Container */
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(201, 162, 39, 0.08);
+            border: 1px solid rgba(201, 162, 39, 0.2);
+            border-radius: 2px;
+            color: var(--tactical-gold);
+            font-size: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--tactical-black);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(201, 162, 39, 0.3);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(201, 162, 39, 0.5);
+        }
+
+        /* Selection */
+        ::selection {
+            background: rgba(201, 162, 39, 0.3);
+            color: var(--tactical-smoke);
+        }
+
+        /* Hamburger */
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--tactical-gold);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .stat-number {
+                font-size: 2.25rem;
+            }
+            .section-label {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Tactical Canvas Background -->
+    <canvas id="tactical-canvas"></canvas>
+    
+    <!-- Vignette Overlay -->
+    <div class="vignette-overlay"></div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+
+    <!-- Mobile Menu -->
+    <nav class="mobile-menu" id="mobileMenu">
+        <div class="flex flex-col gap-6">
+            <a href="#home" onclick="closeMenu()" class="text-tactical-smoke hover:text-tactical-gold transition-colors font-heading text-lg tracking-wider uppercase">Home</a>
+            <a href="#services" onclick="closeMenu()" class="text-tactical-smoke hover:text-tactical-gold transition-colors font-heading text-lg tracking-wider uppercase">Services</a>
+            <a href="#about" onclick="closeMenu()" class="text-tactical-smoke hover:text-tactical-gold transition-colors font-heading text-lg tracking-wider uppercase">About</a>
+            <a href="#leadership" onclick="closeMenu()" class="text-tactical-smoke hover:text-tactical-gold transition-colors font-heading text-lg tracking-wider uppercase">Leadership</a>
+            <a href="#why-us" onclick="closeMenu()" class="text-tactical-smoke hover:text-tactical-gold transition-colors font-heading text-lg tracking-wider uppercase">Why Us</a>
+            <a href="#reviews" onclick="closeMenu()" class="text-tactical-smoke hover:text-tactical-gold transition-colors font-heading text-lg tracking-wider uppercase">Reviews</a>
+            <a href="#contact" onclick="closeMenu()" class="text-tactical-smoke hover:text-tactical-gold transition-colors font-heading text-lg tracking-wider uppercase">Contact</a>
+            <a href="#contact" onclick="closeMenu()" class="btn-gold text-center mt-4">Request Detail</a>
+        </div>
+    </nav>
+
+    <!-- Content Layer -->
+    <div class="content-layer">
+        
+        <!-- NAVIGATION -->
+        <header class="fixed top-0 left-0 right-0 z-50 nav-glass" id="navbar">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <!-- Logo -->
+                    <a href="#home" class="flex items-center gap-3">
+                        <div class="w-10 h-10 relative">
+                            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                                <path d="M20 2L4 10v12c0 9.9 6.8 19.2 16 22 9.2-2.8 16-12.1 16-22V10L20 2z" fill="url(#goldGrad)" opacity="0.15" stroke="#c9a227" stroke-width="1.5"/>
+                                <path d="M20 6L8 12.5v9c0 7.7 5.3 15 12 17.3 6.7-2.3 12-9.6 12-17.3v-9L20 6z" fill="url(#goldGrad)" opacity="0.1" stroke="#c9a227" stroke-width="1"/>
+                                <path d="M20 10l-8 4v7c0 5.5 3.5 10.5 8 12.5 4.5-2 8-7 8-12.5v-7l-8-4z" fill="none" stroke="#c9a227" stroke-width="0.75" opacity="0.4"/>
+                                <text x="20" y="23" text-anchor="middle" fill="#c9a227" font-size="10" font-weight="bold" font-family="serif">W</text>
+                                <defs>
+                                    <linearGradient id="goldGrad" x1="0" y1="0" x2="40" y2="40">
+                                        <stop offset="0%" stop-color="#c9a227"/>
+                                        <stop offset="50%" stop-color="#e8c84a"/>
+                                        <stop offset="100%" stop-color="#b8941f"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="hidden sm:block">
+                            <div class="font-heading text-lg tracking-wider text-tactical-gold leading-none">WILLSHER</div>
+                            <div class="text-[0.65rem] tracking-[0.3em] text-text-muted uppercase leading-none mt-0.5">Security LLC.</div>
+                        </div>
+                    </a>
+
+                    <!-- Desktop Nav -->
+                    <nav class="hidden lg:flex items-center gap-8">
+                        <a href="#home" class="text-sm font-medium text-tactical-smoke hover:text-tactical-gold transition-colors tracking-wide uppercase">Home</a>
+                        <a href="#services" class="text-sm font-medium text-tactical-smoke hover:text-tactical-gold transition-colors tracking-wide uppercase">Services</a>
+                        <a href="#about" class="text-sm font-medium text-tactical-smoke hover:text-tactical-gold transition-colors tracking-wide uppercase">About</a>
+                        <a href="#leadership" class="text-sm font-medium text-tactical-smoke hover:text-tactical-gold transition-colors tracking-wide uppercase">Leadership</a>
+                        <a href="#why-us" class="text-sm font-medium text-tactical-smoke hover:text-tactical-gold transition-colors tracking-wide uppercase">Why Us</a>
+                        <a href="#reviews" class="text-sm font-medium text-tactical-smoke hover:text-tactical-gold transition-colors tracking-wide uppercase">Reviews</a>
+                        <a href="#contact" class="text-sm font-medium text-tactical-smoke hover:text-tactical-gold transition-colors tracking-wide uppercase">Contact</a>
+                    </nav>
+
+                    <!-- CTA + Hamburger -->
+                    <div class="flex items-center gap-4">
+                        <a href="#contact" class="hidden md:inline-block btn-gold text-sm py-2.5 px-5">Request Detail</a>
+                        <button class="hamburger lg:hidden" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- HERO SECTION -->
+        <section id="home" class="relative min-h-screen flex items-center justify-center">
+            <div class="hero-overlay absolute inset-0"></div>
+            <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
+                
+                <!-- Logo -->
+                <div class="reveal mb-8">
+                    <div class="w-24 h-24 mx-auto mb-6">
+                        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full drop-shadow-2xl">
+                            <path d="M40 4L8 20v24c0 19.8 13.6 38.4 32 44 18.4-5.6 32-24.2 32-44V20L40 4z" fill="url(#heroGold)" opacity="0.2" stroke="#c9a227" stroke-width="2"/>
+                            <path d="M40 12L16 24v18c0 15.4 10.6 30 24 34.6 13.4-4.6 24-19.2 24-34.6V24L40 12z" fill="url(#heroGold)" opacity="0.1" stroke="#c9a227" stroke-width="1.5"/>
+                            <path d="M40 20l-16 8v14c0 11 7 21 16 25 9-4 16-14 16-25V28l-16-8z" fill="none" stroke="#c9a227" stroke-width="1" opacity="0.5"/>
+                            <text x="40" y="48" text-anchor="middle" fill="#c9a227" font-size="22" font-weight="bold" font-family="serif" filter="url(#glow)">W</text>
+                            <defs>
+                                <linearGradient id="heroGold" x1="0" y1="0" x2="80" y2="80">
+                                    <stop offset="0%" stop-color="#c9a227"/>
+                                    <stop offset="50%" stop-color="#e8c84a"/>
+                                    <stop offset="100%" stop-color="#b8941f"/>
+                                </linearGradient>
+                                <filter id="glow">
+                                    <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="font-heading text-2xl sm:text-3xl tracking-[0.2em] text-tactical-gold">WILLSHER</div>
+                    <div class="text-sm tracking-[0.4em] text-text-muted uppercase mt-1">Security LLC.</div>
+                </div>
+
+                <!-- Headline -->
+                <h1 class="reveal reveal-delay-1 font-heading text-4xl sm:text-5xl md:text-7xl font-bold text-tactical-smoke uppercase tracking-wide leading-tight mb-6">
+                    Elite Protection.<br>
+                    <span class="text-tactical-gold">Unwavering Vigilance.</span>
+                </h1>
+
+                <!-- Subheadline -->
+                <p class="reveal reveal-delay-2 text-lg sm:text-xl text-text-muted max-w-2xl mx-auto mb-4 leading-relaxed">
+                    Comprehensive security solutions tailored to protect what matters most to you and your business.
+                </p>
+
+                <!-- Location Badge -->
+                <div class="reveal reveal-delay-3 flex flex-wrap items-center justify-center gap-4 mb-10">
+                    <div class="flex items-center gap-2 text-tactical-gold/80">
+                        <i class="fas fa-map-marker-alt text-sm"></i>
+                        <span class="text-sm tracking-wide">Spring, Texas — Greater Houston</span>
+                    </div>
+                    <div class="hidden sm:block w-px h-4 bg-tactical-gold/20"></div>
+                    <div class="flex items-center gap-2 text-tactical-gold/80">
+                        <i class="fas fa-clock text-sm"></i>
+                        <span class="text-sm tracking-wide">24 Hours / 7 Days Coverage</span>
+                    </div>
+                </div>
+
+                <!-- CTAs -->
+                <div class="reveal reveal-delay-4 flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                    <a href="#services" class="btn-gold w-full sm:w-auto text-center">Explore Services</a>
+                    <a href="#contact" class="btn-outline w-full sm:w-auto text-center">Request Consultation</a>
+                </div>
+
+                <!-- Trust Badges -->
+                <div class="reveal reveal-delay-5 flex flex-wrap items-center justify-center gap-6 text-text-muted text-xs tracking-wider uppercase">
+                    <span class="flex items-center gap-2"><i class="fas fa-shield-alt text-tactical-gold"></i> TX DPS Licensed</span>
+                    <span class="flex items-center gap-2"><i class="fas fa-star text-tactical-gold"></i> Veteran Led</span>
+                    <span class="flex items-center gap-2"><i class="fas fa-headset text-tactical-gold"></i> 24/7 Dispatch</span>
+                    <span class="flex items-center gap-2"><i class="fas fa-certificate text-tactical-gold"></i> Fully Insured</span>
+                </div>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator">
+                <span class="text-[0.65rem] tracking-[0.3em] text-text-muted uppercase">Scroll</span>
+                <i class="fas fa-chevron-down text-tactical-gold text-sm"></i>
+            </div>
+        </section>
+
+        <!-- STATS BAR -->
+        <section class="relative py-16 sm:py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                    <div class="reveal text-center">
+                        <div class="stat-number" data-target="30" data-suffix="+">0</div>
+                        <div class="text-text-muted text-sm tracking-wider uppercase mt-2">Years Law Enforcement Leadership</div>
+                    </div>
+                    <div class="reveal reveal-delay-1 text-center">
+                        <div class="stat-number" data-target="24" data-suffix="/7">0</div>
+                        <div class="text-text-muted text-sm tracking-wider uppercase mt-2">Always On Coverage</div>
+                    </div>
+                    <div class="reveal reveal-delay-2 text-center">
+                        <div class="stat-number" data-target="100" data-suffix="%">0</div>
+                        <div class="text-text-muted text-sm tracking-wider uppercase mt-2">Texas DPS Licensed Personnel</div>
+                    </div>
+                    <div class="reveal reveal-delay-3 text-center">
+                        <div class="stat-number" data-target="1" data-suffix="st">0</div>
+                        <div class="text-text-muted text-sm tracking-wider uppercase mt-2">Mental Health Unit in Harris County</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section id="services" class="relative py-20 sm:py-28">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 reveal">
+                    <div class="section-label">Our Capabilities</div>
+                    <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-tactical-smoke uppercase tracking-wide">Services</h2>
+                    <div class="w-24 h-0.5 bg-tactical-gold mx-auto mt-6"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                    <!-- Service 1 -->
+                    <div class="reveal tactical-card p-8 rounded-sm">
+                        <div class="service-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-semibold text-tactical-smoke uppercase tracking-wide mb-3">Armed & Unarmed Officers</h3>
+                        <p class="text-text-muted text-sm leading-relaxed">Highly trained, Texas-licensed law enforcement officers for retail, corporate, residential, and event environments. Professional deterrence with absolute discretion.</p>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="reveal reveal-delay-1 tactical-card p-8 rounded-sm">
+                        <div class="service-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-semibold text-tactical-smoke uppercase tracking-wide mb-3">Mobile Patrol</h3>
+                        <p class="text-text-muted text-sm leading-relaxed">Randomized and scheduled vehicle patrols across properties, construction sites, and neighborhoods. Marked units provide visible protection 24/7.</p>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="reveal reveal-delay-2 tactical-card p-8 rounded-sm">
+                        <div class="service-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-semibold text-tactical-smoke uppercase tracking-wide mb-3">Access Control</h3>
+                        <p class="text-text-muted text-sm leading-relaxed">Gate management, visitor verification, badge enforcement, and entry-point hardening. We control who gets in — and who does not.</p>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="reveal tactical-card p-8 rounded-sm">
+                        <div class="service-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-semibold text-tactical-smoke uppercase tracking-wide mb-3">Event Security</h3>
+                        <p class="text-text-muted text-sm leading-relaxed">Crowd management, perimeter control, VIP protection, and threat assessment for corporate functions, concerts, private gatherings, and high-profile galas.</p>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div class="reveal reveal-delay-1 tactical-card p-8 rounded-sm">
+                        <div class="service-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-semibold text-tactical-smoke uppercase tracking-wide mb-3">Loss Prevention</h3>
+                        <p class="text-text-muted text-sm leading-relaxed">Covert observation, asset protection, internal theft investigation, and shrink reduction programs designed for retail and warehouse operations.</p>
+                    </div>
+
+                    <!-- Service 6 -->
+                    <div class="reveal reveal-delay-2 tactical-card p-8 rounded-sm">
+                        <div class="service-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="font-heading text-xl font-semibold text-tactical-smoke uppercase tracking-wide mb-3">Emergency Response</h3>
+                        <p class="text-text-muted text-sm leading-relaxed">Rapid alarm response, lockdown assistance, and on-scene coordination with law enforcement. When seconds count, we are already moving.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="relative py-20 sm:py-28">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="reveal">
+                    <div class="section-label">Our Mission</div>
+                    <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-tactical-smoke uppercase tracking-wide mb-10">About Willsher Security</h2>
+                </div>
+                
+                <div class="reveal reveal-delay-1 bg-surface/50 border border-tactical-gold/10 p-8 sm:p-12 rounded-sm backdrop-blur-sm">
+                    <p class="text-tactical-smoke/90 text-base sm:text-lg leading-relaxed mb-6">
+                        Founded in Spring, Texas, Willsher Security LLC was built on a single principle: protection is not a service, it is a responsibility. We serve residential communities, commercial properties, industrial facilities, and private clients throughout Greater Houston with vigilance, discipline, and integrity.
+                    </p>
+                    <p class="text-tactical-smoke/90 text-base sm:text-lg leading-relaxed mb-6">
+                        Every officer is vetted, licensed by the Texas Department of Public Safety, and trained to the highest professional standards. We do not cut corners. We do not sleep on watch. And we treat your security as if it were our own family on the line.
+                    </p>
+                    <p class="text-tactical-smoke/90 text-base sm:text-lg leading-relaxed">
+                        From static posts to mobile patrols, from access control to executive protection, Willsher Security stands as the first line of defense between your world and whatever threatens it.
+                    </p>
+                </div>
+
+                <div class="reveal reveal-delay-2 flex flex-wrap items-center justify-center gap-8 mt-12">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 flex items-center justify-center bg-tactical-gold/10 border border-tactical-gold/20 rounded-sm">
+                            <i class="fas fa-id-card text-tactical-gold"></i>
+                        </div>
+                        <div class="text-left">
+                            <div class="text-tactical-smoke font-semibold text-sm">TX DPS Licensed</div>
+                            <div class="text-text-muted text-xs">License #TXDPS-F12345</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 flex items-center justify-center bg-tactical-gold/10 border border-tactical-gold/20 rounded-sm">
+                            <i class="fas fa-shield-alt text-tactical-gold"></i>
+                        </div>
+                        <div class="text-left">
+                            <div class="text-tactical-smoke font-semibold text-sm">Fully Insured</div>
+                            <div class="text-text-muted text-xs">Comprehensive Liability</div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 flex items-center justify-center bg-tactical-gold/10 border border-tactical-gold/20 rounded-sm">
+                            <i class="fas fa-medal text-tactical-gold"></i>
+                        </div>
+                        <div class="text-left">
+                            <div class="text-tactical-smoke font-semibold text-sm">Veteran Led</div>
+                            <div class="text-text-muted text-xs">Command Experience</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LEADERSHIP SECTION -->
+        <section id="leadership" class="relative py-20 sm:py-28">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 reveal">
+                    <div class="section-label">Command Structure</div>
+                    <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-tactical-smoke uppercase tracking-wide">Leadership</h2>
+                    <div class="w-24 h-0.5 bg-tactical-gold mx-auto mt-6"></div>
+                </div>
+
+                <div class="grid lg:grid-cols-5 gap-12 lg:gap-16">
+                    <!-- Left Column: Portrait -->
+                    <div class="lg:col-span-2 reveal">
+                        <div class="gold-frame p-1 relative inline-block w-full max-w-sm mx-auto lg:mx-0">
+                            <div class="official-stamp">Official</div>
+                            <div class="relative overflow-hidden bg-surface">
+                                <img 
+                                    src="willie-hodge.jpg" 
+                                    alt="Willie Hodge - Founder & CEO of Willsher Security LLC" 
+                                    class="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                                    loading="lazy"
+                                >
+                                <div class="absolute inset-0 bg-gradient-to-t from-tactical-black/60 to-transparent"></div>
+                            </div>
+                        </div>
+                        <div class="mt-6 text-center lg:text-left">
+                            <div class="shield-badge mx-auto lg:mx-0">
+                                <i class="fas fa-shield-alt"></i>
+                                30+ Years Law Enforcement
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Bio Content -->
+                    <div class="lg:col-span-3 reveal reveal-delay-1">
+                        <div class="confidential-stamp">Confidential</div>
+                        
+                        <h3 class="font-heading text-3xl sm:text-4xl font-bold text-tactical-smoke uppercase tracking-wide">Willie Hodge</h3>
+                        <p class="text-tactical-gold font-medium tracking-wide mt-1">Founder & Chief Executive Officer</p>
+                        <p class="text-text-muted italic mt-2 mb-6">"From Patrol Officer to Command Staff. Three decades of service, now serving you."</p>
+
+                        <p class="text-tactical-smoke/80 leading-relaxed mb-8">
+                            With over 30 years in law enforcement and tactical security operations, Willie Hodge brings command-level expertise to every client engagement. His career spans patrol operations, special tactics, and senior leadership — culminating in the founding of Willsher Security LLC to deliver elite protection standards to the private sector.
+                        </p>
+
+                        <!-- Landmark Achievement -->
+                        <div class="landmark-box p-6 mb-8 rounded-r-sm">
+                            <div class="flex items-start gap-3 mb-3">
+                                <i class="fas fa-landmark text-tactical-gold mt-1"></i>
+                                <div>
+                                    <div class="font-heading text-sm tracking-wider uppercase text-tactical-gold mb-1">Landmark Achievement</div>
+                                    <div class="font-heading text-lg text-tactical-smoke uppercase tracking-wide">Founder of the Harris County Mental Health Unit</div>
+                                </div>
+                            </div>
+                            <p class="text-text-muted text-sm leading-relaxed ml-8">
+                                Willie Hodge established and led the first dedicated law enforcement mental health crisis response team in Harris County, Texas. This pioneering unit integrated licensed mental health professionals with specially trained tactical officers to de-escalate crisis situations, reduce use-of-force incidents, and connect individuals in crisis with appropriate care rather than incarceration. The model has since been studied and replicated by agencies across Texas and the United States.
+                            </p>
+                        </div>
+
+                        <!-- Career Timeline -->
+                        <div class="relative pl-8 mb-8">
+                            <div class="timeline-line"></div>
+                            
+                            <div class="mb-6 relative">
+                                <div class="flex items-start gap-4">
+                                    <div class="timeline-node"><i class="fas fa-star"></i></div>
+                                    <div>
+                                        <div class="font-heading text-sm text-tactical-gold uppercase tracking-wider">Early Career</div>
+                                        <p class="text-text-muted text-sm mt-1">Began service as a Constable in Harris County, serving his community at the ground level</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-6 relative">
+                                <div class="flex items-start gap-4">
+                                    <div class="timeline-node"><i class="fas fa-shield-alt"></i></div>
+                                    <div>
+                                        <div class="font-heading text-sm text-tactical-gold uppercase tracking-wider">Field Operations</div>
+                                        <p class="text-text-muted text-sm mt-1">Advanced through patrol and tactical response units, building expertise in crisis intervention</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-6 relative">
+                                <div class="flex items-start gap-4">
+                                    <div class="timeline-node red"><i class="fas fa-heart"></i></div>
+                                    <div>
+                                        <div class="font-heading text-sm text-tactical-red uppercase tracking-wider">2015 — Landmark Achievement</div>
+                                        <p class="text-text-muted text-sm mt-1">Founded the Harris County Mental Health Unit — the first integrated mental health crisis response team in county history</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-6 relative">
+                                <div class="flex items-start gap-4">
+                                    <div class="timeline-node"><i class="fas fa-star"></i></div>
+                                    <div>
+                                        <div class="font-heading text-sm text-tactical-gold uppercase tracking-wider">Senior Command</div>
+                                        <p class="text-text-muted text-sm mt-1">Led specialized units and commanded operations with the Harris County Sheriff's Office</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="relative">
+                                <div class="flex items-start gap-4">
+                                    <div class="timeline-node"><i class="fas fa-crown"></i></div>
+                                    <div>
+                                        <div class="font-heading text-sm text-tactical-gold uppercase tracking-wider">Present — Willsher Security LLC</div>
+                                        <p class="text-text-muted text-sm mt-1">Founded Willsher Security to bring three decades of command experience to private sector protection</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pull Quote -->
+                        <div class="pull-quote mb-8">
+                            <p class="text-tactical-smoke italic text-lg leading-relaxed relative z-10">
+                                Thirty years in law enforcement taught me that the best security is preventive, professional, and people-focused. We don't just respond to threats — we anticipate them, we plan for them, and we neutralize them before they reach your door. That's the Willsher standard.
+                            </p>
+                            <p class="text-tactical-gold text-sm mt-4 font-medium relative z-10">— Willie Hodge, Founder & CEO</p>
+                        </div>
+
+                        <!-- Credentials Row -->
+                        <div class="flex flex-wrap gap-3">
+                            <div class="cred-badge">
+                                <i class="fas fa-id-card"></i>
+                                Texas DPS Licensed
+                            </div>
+                            <div class="cred-badge">
+                                <i class="fas fa-medal"></i>
+                                30+ Years Law Enforcement
+                            </div>
+                            <div class="cred-badge">
+                                <i class="fas fa-heart"></i>
+                                Mental Health Crisis Certified
+                            </div>
+                            <div class="cred-badge">
+                                <i class="fas fa-headset"></i>
+                                24/7 Operations Command
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY US SECTION -->
+        <section id="why-us" class="relative py-20 sm:py-28">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 reveal">
+                    <div class="section-label">Our Advantage</div>
+                    <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-tactical-smoke uppercase tracking-wide">Why Willsher</h2>
+                    <div class="w-24 h-0.5 bg-tactical-gold mx-auto mt-6"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Feature 1 -->
+                    <div class="reveal feature-block p-8 rounded-sm">
+                        <div class="w-12 h-12 flex items-center justify-center bg-tactical-gold/10 border border-tactical-gold/20 rounded-sm mb-5">
+                            <i class="fas fa-certificate text-tactical-gold text-lg"></i>
+                        </div>
+                        <h3 class="font-heading text-lg font-semibold text-tactical-smoke uppercase tracking-wide mb-2">Licensed & Insured</h3>
+                        <p class="text-text-muted text-sm leading-relaxed">Fully licensed by TX DPS and backed by comprehensive liability coverage. Compliance is our baseline, not our ceiling.</p>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="reveal reveal-delay-1 feature-block p-8 rounded-sm">
+                        <div class="w-12 h-12 flex items-center justify-center bg-tactical-gold/10 border border-tactical-gold/20 rounded-sm mb-5">
+                            <i class="fas fa-clock text-tactical-gold text-lg"></i>
+                        </div>
+                        <h3 class="font-heading text-lg font-semibold text-tactical-smoke uppercase tracking-wide mb-2">24 / 7 Availability</h3>
+                        <p class="text-text-muted text-sm leading-relaxed">Threats do not observe business hours. Our dispatch and field teams are active around the clock, every day of the year.</p>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="reveal reveal-delay-2 feature-block p-8 rounded-sm">
+                        <div class="w-12 h-12 flex items-center justify-center bg-tactical-gold/10 border border-tactical-gold/20 rounded-sm mb-5">
+                            <i class="fas fa-star text-tactical-gold text-lg"></i>
+                        </div>
+                        <h3 class="font-heading text-lg font-semibold text-tactical-smoke uppercase tracking-wide mb-2">Command-Level Leadership</h3>
+                        <p class="text-text-muted text-sm leading-relaxed">Led by a former law enforcement commander with 30+ years in tactical operations and crisis management. Not just security guards — strategic protection directed by experience at the highest level.</p>
+                    </div>
+
+                    <!-- Feature 4 -->
+                    <div class="reveal feature-block p-8 rounded-sm">
+                        <div class="w-12 h-12 flex items-center justify-center bg-tactical-red/10 border border-tactical-red/20 rounded-sm mb-5">
+                            <i class="fas fa-heart text-tactical-red text-lg"></i>
+                        </div>
+                        <h3 class="font-heading text-lg font-semibold text-tactical-smoke uppercase tracking-wide mb-2">Proven Crisis Response</h3>
+                        <p class="text-text-muted text-sm leading-relaxed">Pioneer of Harris County's first mental health crisis unit. We de-escalate before we engage, plan before we react, and lead before we follow.</p>
+                    </div>
+
+                    <!-- Feature 5 -->
+                    <div class="reveal reveal-delay-1 feature-block p-8 rounded-sm">
+                        <div class="w-12 h-12 flex items-center justify-center bg-tactical-gold/10 border border-tactical-gold/20 rounded-sm mb-5">
+                            <i class="fas fa-file-alt text-tactical-gold text-lg"></i>
+                        </div>
+                        <h3 class="font-heading text-lg font-semibold text-tactical-smoke uppercase tracking-wide mb-2">Transparent Reporting</h3>
+                        <p class="text-text-muted text-sm leading-relaxed">Real-time incident logs, daily activity reports, and photo documentation delivered directly to your inbox or portal.</p>
+                    </div>
+
+                    <!-- Feature 6 -->
+                    <div class="reveal reveal-delay-2 feature-block p-8 rounded-sm">
+                        <div class="w-12 h-12 flex items-center justify-center bg-tactical-gold/10 border border-tactical-gold/20 rounded-sm mb-5">
+                            <i class="fas fa-medal text-tactical-gold text-lg"></i>
+                        </div>
+                        <h3 class="font-heading text-lg font-semibold text-tactical-smoke uppercase tracking-wide mb-2">Veteran-Led Roster</h3>
+                        <p class="text-text-muted text-sm leading-relaxed">Our leadership and many of our officers come from military and law enforcement backgrounds. Experience you can trust under pressure.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REVIEWS SECTION -->
+        <section id="reviews" class="relative py-20 sm:py-28">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 reveal">
+                    <div class="section-label">Testimonials</div>
+                    <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-tactical-smoke uppercase tracking-wide">Client Reviews</h2>
+                    <div class="w-24 h-0.5 bg-tactical-gold mx-auto mt-6"></div>
+                </div>
+
+                <div class="reveal testimonial-card p-8 sm:p-12 rounded-sm relative">
+                    <p class="text-tactical-smoke/90 text-base sm:text-lg leading-relaxed relative z-10 italic">
+                        Willsher Security transformed how we protect our property. Their officers are punctual, professional, and genuinely invested in keeping our community safe. In two years, we have not had a single incident that was not handled immediately and flawlessly.
+                    </p>
+                    <div class="mt-8 flex items-center gap-4 relative z-10">
+                        <div class="w-12 h-12 rounded-full bg-tactical-gold/10 border border-tactical-gold/20 flex items-center justify-center">
+                            <i class="fas fa-user text-tactical-gold"></i>
+                        </div>
+                        <div>
+                            <div class="text-tactical-smoke font-semibold">Property Manager</div>
+                            <div class="text-text-muted text-sm">Spring Creek Community</div>
+                        </div>
+                        <div class="ml-auto flex gap-1">
+                            <i class="fas fa-star text-tactical-gold text-sm"></i>
+                            <i class="fas fa-star text-tactical-gold text-sm"></i>
+                            <i class="fas fa-star text-tactical-gold text-sm"></i>
+                            <i class="fas fa-star text-tactical-gold text-sm"></i>
+                            <i class="fas fa-star text-tactical-gold text-sm"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="relative py-20 sm:py-28">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 reveal">
+                    <div class="section-label">Get In Touch</div>
+                    <h2 class="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-tactical-smoke uppercase tracking-wide">Contact</h2>
+                    <div class="w-24 h-0.5 bg-tactical-gold mx-auto mt-6"></div>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <!-- Contact Form -->
+                    <div class="reveal">
+                        <form class="space-y-6" onsubmit="event.preventDefault(); alert('Thank you for your inquiry. We will respond within 24 hours.');">
+                            <div class="grid sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm text-text-muted mb-2 uppercase tracking-wider">First Name</label>
+                                    <input type="text" class="form-input" placeholder="John" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm text-text-muted mb-2 uppercase tracking-wider">Last Name</label>
+                                    <input type="text" class="form-input" placeholder="Doe" required>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-sm text-text-muted mb-2 uppercase tracking-wider">Email</label>
+                                <input type="email" class="form-input" placeholder="john@company.com" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm text-text-muted mb-2 uppercase tracking-wider">Phone</label>
+                                <input type="tel" class="form-input" placeholder="(281) 555-0199">
+                            </div>
+                            <div>
+                                <label class="block text-sm text-text-muted mb-2 uppercase tracking-wider">Service Needed</label>
+                                <select class="form-input">
+                                    <option value="">Select a service...</option>
+                                    <option value="armed">Armed & Unarmed Officers</option>
+                                    <option value="patrol">Mobile Patrol</option>
+                                    <option value="access">Access Control</option>
+                                    <option value="event">Event Security</option>
+                                    <option value="loss">Loss Prevention</option>
+                                    <option value="emergency">Emergency Response</option>
+                                    <option value="other">Other / Multiple Services</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm text-text-muted mb-2 uppercase tracking-wider">Message</label>
+                                <textarea class="form-input h-32 resize-none" placeholder="Tell us about your security needs..."></textarea>
+                            </div>
+                            <button type="submit" class="btn-gold w-full">Submit Request</button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="reveal reveal-delay-1">
+                        <div class="bg-surface border border-tactical-gold/10 p-8 rounded-sm h-full">
+                            <h3 class="font-heading text-2xl font-bold text-tactical-smoke uppercase tracking-wide mb-6">Direct Contact</h3>
+                            
+                            <div class="space-y-2">
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm text-text-muted uppercase tracking-wider mb-1">Phone</div>
+                                        <a href="tel:+12815550199" class="text-tactical-smoke hover:text-tactical-gold transition-colors">(281) 555-0199</a>
+                                    </div>
+                                </div>
+
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm text-text-muted uppercase tracking-wider mb-1">Email</div>
+                                        <a href="mailto:info@willshersecurity.com" class="text-tactical-smoke hover:text-tactical-gold transition-colors">info@willshersecurity.com</a>
+                                    </div>
+                                </div>
+
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm text-text-muted uppercase tracking-wider mb-1">Location</div>
+                                        <p class="text-tactical-smoke">Spring, Texas<br>Greater Houston Area</p>
+                                    </div>
+                                </div>
+
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-id-card"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm text-text-muted uppercase tracking-wider mb-1">License</div>
+                                        <p class="text-tactical-smoke">TX DPS License #TXDPS-F12345</p>
+                                    </div>
+                                </div>
+
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm text-text-muted uppercase tracking-wider mb-1">Hours</div>
+                                        <p class="text-tactical-smoke">24 Hours / 7 Days / 365 Days</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-8 pt-6 border-t border-white/5">
+                                <div class="text-sm text-text-muted uppercase tracking-wider mb-4">Emergency Dispatch</div>
+                                <a href="tel:+12815550199" class="btn-gold w-full text-center inline-block">
+                                    <i class="fas fa-phone-alt mr-2"></i>
+                                    Call Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="relative py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                    <!-- Brand -->
+                    <div class="lg:col-span-1">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-10 h-10">
+                                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                                    <path d="M20 2L4 10v12c0 9.9 6.8 19.2 16 22 9.2-2.8 16-12.1 16-22V10L20 2z" fill="url(#footGold)" opacity="0.15" stroke="#c9a227" stroke-width="1.5"/>
+                                    <text x="20" y="23" text-anchor="middle" fill="#c9a227" font-size="10" font-weight="bold" font-family="serif">W</text>
+                                    <defs>
+                                        <linearGradient id="footGold" x1="0" y1="0" x2="40" y2="40">
+                                            <stop offset="0%" stop-color="#c9a227"/>
+                                            <stop offset="100%" stop-color="#b8941f"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="font-heading text-lg tracking-wider text-tactical-gold leading-none">WILLSHER</div>
+                                <div class="text-[0.65rem] tracking-[0.3em] text-text-muted uppercase leading-none mt-0.5">Security LLC.</div>
+                            </div>
+                        </div>
+                        <p class="text-text-muted text-sm leading-relaxed">
+                            Elite protection and unwavering vigilance for residential, commercial, and industrial clients throughout Greater Houston.
+                        </p>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div>
+                        <h4 class="font-heading text-sm uppercase tracking-wider text-tactical-smoke mb-4">Navigation</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="text-text-muted hover:text-tactical-gold transition-colors text-sm">Home</a></li>
+                            <li><a href="#services" class="text-text-muted hover:text-tactical-gold transition-colors text-sm">Services</a></li>
+                            <li><a href="#about" class="text-text-muted hover:text-tactical-gold transition-colors text-sm">About</a></li>
+                            <li><a href="#leadership" class="text-text-muted hover:text-tactical-gold transition-colors text-sm">Leadership</a></li>
+                            <li><a href="#why-us" class="text-text-muted hover:text-tactical-gold transition-colors text-sm">Why Us</a></li>
+                            <li><a href="#reviews" class="text-text-muted hover:text-tactical-gold transition-colors text-sm">Reviews</a></li>
+                            <li><a href="#contact" class="text-text-muted hover:text-tactical-gold transition-colors text-sm">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Services -->
+                    <div>
+                        <h4 class="font-heading text-sm uppercase tracking-wider text-tactical-smoke mb-4">Services</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#services" class="text-text-muted hover:text-tactical-gold transition-colors text-sm">Armed & Unarmed Officers</a></li>
+                            <li><a href="#services" class="text-text-muted hover:text-tactical-gold transition-colors text-sm">Mobile Patrol</a></li>
+                            <li><a href="#services" class="text-text-muted hover:text-tactical-gold transition-colors text-sm">Access Control</a></li>
+                            <li><a href="#services" class="text-text-muted hover:text-tactical-gold transition-colors text-sm">Event Security</a></li>
+                            <li><a href="#services" class="text-text-muted hover:text-tactical-gold transition-colors text-sm">Loss Prevention</a></li>
+                            <li><a href="#services" class="text-text-muted hover:text-tactical-gold transition-colors text-sm">Emergency Response</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact -->
+                    <div>
+                        <h4 class="font-heading text-sm uppercase tracking-wider text-tactical-smoke mb-4">Contact</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3 text-text-muted text-sm">
+                                <i class="fas fa-phone text-tactical-gold/60 w-4"></i>
+                                <a href="tel:+12815550199" class="hover:text-tactical-gold transition-colors">(281) 555-0199</a>
+                            </li>
+                            <li class="flex items-center gap-3 text-text-muted text-sm">
+                                <i class="fas fa-envelope text-tactical-gold/60 w-4"></i>
+                                <a href="mailto:info@willshersecurity.com" class="hover:text-tactical-gold transition-colors">info@willshersecurity.com</a>
+                            </li>
+                            <li class="flex items-start gap-3 text-text-muted text-sm">
+                                <i class="fas fa-map-marker-alt text-tactical-gold/60 w-4 mt-0.5"></i>
+                                <span>Spring, Texas<br>Greater Houston Area</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                    <p class="text-text-muted text-xs">
+                        &copy; 2024 Willsher Security LLC. All rights reserved. TX DPS License #TXDPS-F12345.
+                    </p>
+                    <div class="flex items-center gap-6">
+                        <span class="text-text-muted text-xs flex items-center gap-2">
+                            <i class="fas fa-shield-alt text-tactical-gold/60"></i>
+                            Licensed & Insured
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // TACTICAL CANVAS BACKGROUND
+        (function() {
+            const canvas = document.getElementById('tactical-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            let width, height;
+            let animationId;
+            let lastTime = 0;
+            const targetFPS = 60;
+            const frameInterval = 1000 / targetFPS;
+            
+            const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
+            const particleCount = isTouchDevice ? 30 : 60;
+            const connectionDistance = 120;
+            const mouseRepelRadius = 80;
+            
+            let mouse = { x: null, y: null };
+            let particles = [];
+            let dustParticles = [];
+            let scanY = 0;
+            let scanCycle = 0;
+            
+            const colors = {
+                gold: '201, 162, 39',
+                blue: '74, 111, 165',
+                goldHex: '#c9a227',
+                blueHex: '#4a6fa5'
+            };
+
+            function resize() {
+                width = window.innerWidth;
+                height = window.innerHeight;
+                canvas.width = width;
+                canvas.height = height;
+            }
+
+            class Particle {
+                constructor() {
+                    this.reset();
+                }
+
+                reset() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.vx = (Math.random() - 0.5) * 0.4;
+                    this.vy = (Math.random() - 0.5) * 0.4;
+                    this.radius = Math.random() * 2 + 1;
+                    this.isGold = Math.random() > 0.5;
+                }
+
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+
+                    if (this.x < 0) this.x = width;
+                    if (this.x > width) this.x = 0;
+                    if (this.y < 0) this.y = height;
+                    if (this.y > height) this.y = 0;
+
+                    if (!isTouchDevice && mouse.x !== null) {
+                        const dx = this.x - mouse.x;
+                        const dy = this.y - mouse.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (dist < mouseRepelRadius && dist > 0) {
+                            const force = (mouseRepelRadius - dist) / mouseRepelRadius;
+                            this.x += (dx / dist) * force * 2;
+                            this.y += (dy / dist) * force * 2;
+                        }
+                    }
+                }
+
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = this.isGold ? `rgba(${colors.gold}, 0.6)` : `rgba(${colors.blue}, 0.6)`;
+                    ctx.fill();
+                }
+            }
+
+            class DustParticle {
+                constructor() {
+                    this.reset();
+                }
+
+                reset() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.vy = -(Math.random() * 0.3 + 0.1);
+                    this.vx = (Math.random() - 0.5) * 0.2;
+                    this.size = Math.random() * 1.5 + 0.5;
+                    this.opacity = Math.random() * 0.05 + 0.02;
+                }
+
+                update() {
+                    this.y += this.vy;
+                    this.x += this.vx;
+
+                    if (this.y < -10) {
+                        this.y = height + 10;
+                        this.x = Math.random() * width;
+                    }
+                }
+
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(${colors.gold}, ${this.opacity})`;
+                    ctx.fill();
+                }
+            }
+
+            function initParticles() {
+                particles = [];
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push(new Particle());
+                }
+                
+                dustParticles = [];
+                for (let i = 0; i < 40; i++) {
+                    dustParticles.push(new DustParticle());
+                }
+            }
+
+            function drawHexGrid() {
+                const hexSize = 40;
+                const hexWidth = hexSize * Math.sqrt(3);
+                const hexHeight = hexSize * 2;
+                
+                ctx.strokeStyle = `rgba(${colors.gold}, 0.04)`;
+                ctx.lineWidth = 1;
+                
+                const offset = (Date.now() / 50) % hexHeight;
+                
+                for (let row = -2; row < height / hexHeight + 2; row++) {
+                    for (let col = -2; col < width / hexWidth + 2; col++) {
+                        const x = col * hexWidth + (row % 2) * hexWidth / 2;
+                        const y = row * hexHeight * 0.75 + offset;
+                        
+                        ctx.beginPath();
+                        for (let i = 0; i < 6; i++) {
+                            const angle = (Math.PI / 3) * i - Math.PI / 6;
+                            const px = x + hexSize * Math.cos(angle);
+                            const py = y + hexSize * Math.sin(angle);
+                            if (i === 0) ctx.moveTo(px, py);
+                            else ctx.lineTo(px, py);
+                        }
+                        ctx.closePath();
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            function drawScanLine() {
+                if (isTouchDevice) return;
+                
+                scanCycle += 0.3;
+                scanY = (scanCycle) % (height + 200) - 100;
+                
+                const gradient = ctx.createLinearGradient(0, scanY - 20, 0, scanY + 20);
+                gradient.addColorStop(0, 'transparent');
+                gradient.addColorStop(0.5, `rgba(${colors.blue}, 0.15)`);
+                gradient.addColorStop(1, 'transparent');
+                
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, scanY - 20, width, 40);
+                
+                ctx.beginPath();
+                ctx.moveTo(0, scanY);
+                ctx.lineTo(width, scanY);
+                ctx.strokeStyle = `rgba(${colors.blue}, 0.4)`;
+                ctx.lineWidth = 2;
+                ctx.shadowColor = colors.blueHex;
+                ctx.shadowBlur = 8;
+                ctx.stroke();
+                ctx.shadowBlur = 0;
+            }
+
+            function drawConnections() {
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (dist < connectionDistance) {
+                            const opacity = (1 - dist / connectionDistance) * 0.3;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = `rgba(${colors.gold}, ${opacity})`;
+                            ctx.lineWidth = 1;
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            function animate(currentTime) {
+                animationId = requestAnimationFrame(animate);
+                
+                const deltaTime = currentTime - lastTime;
+                if (deltaTime < frameInterval) return;
+                lastTime = currentTime - (deltaTime % frameInterval);
+                
+                ctx.clearRect(0, 0, width, height);
+                
+                drawHexGrid();
+                
+                dustParticles.forEach(dust => {
+                    dust.update();
+                    dust.draw();
+                });
+                
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+                
+                drawConnections();
+                
+                drawScanLine();
+            }
+
+            window.addEventListener('resize', () => {
+                resize();
+                initParticles();
+            });
+
+            if (!isTouchDevice) {
+                window.addEventListener('mousemove', (e) => {
+                    mouse.x = e.clientX;
+                    mouse.y = e.clientY;
+                });
+
+                window.addEventListener('mouseleave', () => {
+                    mouse.x = null;
+                    mouse.y = null;
+                });
+            }
+
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    cancelAnimationFrame(animationId);
+                } else {
+                    lastTime = performance.now();
+                    animate(lastTime);
+                }
+            });
+
+            try {
+                resize();
+                initParticles();
+                animate(performance.now());
+            } catch (e) {
+                console.warn('Canvas animation failed, using fallback');
+                canvas.style.display = 'none';
+            }
+        })();
+
+        // MOBILE MENU
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const overlay = document.getElementById('menuOverlay');
+            const hamburger = document.getElementById('hamburger');
+            
+            menu.classList.toggle('open');
+            overlay.classList.toggle('open');
+            hamburger.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+        }
+
+        function closeMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const overlay = document.getElementById('menuOverlay');
+            const hamburger = document.getElementById('hamburger');
+            
+            menu.classList.remove('open');
+            overlay.classList.remove('open');
+            hamburger.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // SCROLL REVEAL (Intersection Observer)
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // ANIMATED COUNTERS
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.dataset.target);
+                    const suffix = el.dataset.suffix || '';
+                    const duration = 2000;
+                    const startTime = performance.now();
+                    
+                    function updateCounter(currentTime) {
+                        const elapsed = currentTime - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        const easeProgress = 1 - (1 - progress) * (1 - progress);
+                        const current = Math.floor(easeProgress * target);
+                        
+                        el.textContent = current + suffix;
+                        
+                        if (progress < 1) {
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            el.textContent = target + suffix;
+                        }
+                    }
+                    
+                    requestAnimationFrame(updateCounter);
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stat-number').forEach(el => {
+            counterObserver.observe(el);
+        });
+
+        // NAVBAR SCROLL EFFECT
+        let lastScroll = 0;
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                navbar.style.borderBottomColor = 'rgba(201, 162, 39, 0.25)';
+            } else {
+                navbar.style.borderBottomColor = 'rgba(201, 162, 39, 0.15)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
